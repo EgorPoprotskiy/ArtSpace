@@ -3,4 +3,7 @@
 
     <string name="description_0">description_0</string>
     <string name="year_0">year_0</string>
+
+    <string name="button_previous">previous</string>
+    <string name="button_next">next</string>
 </resources>
