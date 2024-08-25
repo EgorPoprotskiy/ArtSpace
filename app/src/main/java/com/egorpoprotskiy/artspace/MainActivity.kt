@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
@@ -25,7 +26,6 @@ import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.egorpoprotskiy.artspace.ui.theme.ArtSpaceTheme
-import org.w3c.dom.Text
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -42,7 +42,10 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun ArtSpaceApp() {
     Column(
-//        verticalArrangement = Arrangement.Center,
+        modifier = Modifier
+            .fillMaxSize()
+            .padding(bottom = 40.dp),
+        verticalArrangement = Arrangement.Bottom,
         horizontalAlignment = Alignment.CenterHorizontally
     ){
         ImageAdd(
@@ -54,7 +57,8 @@ fun ArtSpaceApp() {
         )
         ButtonAdd(
             buttonPreviews = stringResource(id = R.string.button_previous),
-            buttonNext = stringResource(id = R.string.button_next))
+            buttonNext = stringResource(id = R.string.button_next)
+        )
     }
 }
 
@@ -67,7 +71,7 @@ fun ImageAdd(
         image,
         contentDescription = null,
         modifier = Modifier
-            .size(300.dp, 200.dp)
+            .size(600.dp, 500.dp)
     )
 }
 
@@ -79,7 +83,7 @@ fun DescriptionAndYearAdd(
 ) {
     Column(
         modifier = modifier
-            .padding(20.dp)
+            .padding(80.dp)
             .fillMaxWidth(),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center
@@ -101,17 +105,20 @@ fun ButtonAdd(
     buttonNext: String,
     modifier: Modifier = Modifier
 ) {
-    Row {
+    Row(
+        verticalAlignment = Alignment.Bottom,
+        horizontalArrangement = Arrangement.End
+    ){
         Button(
             onClick = { /*TODO*/ },
-            modifier = Modifier.size(120.dp,40.dp)
+            modifier = Modifier.size(140.dp,40.dp)
         ) {
             Text(text = buttonPreviews)
         }
-        Spacer(modifier = Modifier.width(10.dp))
+        Spacer(modifier = Modifier.width(40.dp))
         Button(
             onClick = { /*TODO*/ },
-            modifier = Modifier.size(120.dp,40.dp)
+            modifier = Modifier.size(140.dp,40.dp)
         ) {
             Text(text = buttonNext)
         }
