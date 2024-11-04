@@ -54,8 +54,8 @@ fun ArtSpaceApp() {
             image = ImageBitmap.imageResource(R.drawable.girl_0)
         )
         DescriptionAndYearAdd(
-            description = stringResource(id = R.string.description_0),
-            year = stringResource(id = R.string.year_0)
+            description = stringResource(id = R.string.description_1),
+            year = stringResource(id = R.string.damage_1)
         )
         ButtonAdd(
             buttonPreviews = stringResource(id = R.string.button_previous),

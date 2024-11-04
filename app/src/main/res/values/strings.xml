@@ -1,9 +1,20 @@
 <resources>
     <string name="app_name">ArtSpace</string>
 
-    <string name="description_0">description_0</string>
-    <string name="year_0">year_0</string>
+    <string name="description_1">Баба</string>
+    <string name="damage_1">Урон: 0</string>
+    <string name="description_2">Женщина-кошка</string>
+    <string name="damage_2">Урон: 10</string>
+    <string name="description_3">Сом</string>
+    <string name="damage_3">Урон: 12</string>
+    <string name="description_4">Тайкус</string>
+    <string name="damage_4">урон: 162</string>
+    <string name="description_5">Нова</string>
+    <string name="damage_5">урон: 135</string>
+    <string name="description_6">Протос</string>
+    <string name="damage_6">урон: 150</string>
 
     <string name="button_previous">previous</string>
     <string name="button_next">next</string>
+
 </resources>
