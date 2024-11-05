@@ -5,16 +5,13 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.width
 import androidx.compose.material3.Button
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -24,13 +21,8 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.ImageBitmap
-import androidx.compose.ui.layout.AlignmentLine
-import androidx.compose.ui.res.imageResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.egorpoprotskiy.artspace.ui.theme.ArtSpaceTheme
@@ -49,8 +41,8 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun ArtSpaceApp() {
-    var result by remember { mutableStateOf(2) }
-    var imageResource = when (result) {
+    var result by remember { mutableStateOf(1) }
+    val imageResource = when (result) {
         1 -> R.drawable.girl_0
         2 -> R.drawable.girl_2
         3 -> R.drawable.girl_3
@@ -58,7 +50,7 @@ fun ArtSpaceApp() {
         5 -> R.drawable.girl_5
         else -> R.drawable.girl_6
     }
-    var textTitleResource = when (result) {
+    val textTitleResource = when (result) {
         1 -> stringResource(R.string.description_1)
         2 -> stringResource(R.string.description_2)
         3 -> stringResource(R.string.description_3)
@@ -66,7 +58,7 @@ fun ArtSpaceApp() {
         5 -> stringResource(R.string.description_5)
         else -> stringResource(R.string.description_6)
     }
-    var textDamageResource = when (result) {
+    val textDamageResource = when (result) {
         1 -> stringResource(R.string.damage_1)
         2 -> stringResource(R.string.damage_2)
         3 -> stringResource(R.string.damage_3)
@@ -77,13 +69,14 @@ fun ArtSpaceApp() {
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .padding(bottom = 40.dp),
+            .padding(10.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.SpaceEvenly
     ) {
         Image(
             painter = painterResource(imageResource),
-            contentDescription = null
+            contentDescription = null,
+            modifier = Modifier.size(400.dp, 500.dp)
         )
         Text(
             text = textTitleResource
@@ -94,17 +87,20 @@ fun ArtSpaceApp() {
 
         Row {
             Button(
-                onClick = { /*TODO*/ }
+                onClick = { if (result == 1 ) result = 6 else result-=1 },
+                modifier = Modifier.size(140.dp, 50.dp)
             ) {
                 Text(
-                    text = "previous"
+                    text = stringResource(R.string.button_previous)
                 )
             }
+            Spacer(Modifier.padding(10.dp))
             Button(
-                onClick = { /*TODO*/ }
+                onClick = { if (result == 6 ) result = 1 else result+=1 },
+                modifier = Modifier.size(140.dp, 50.dp)
             ) {
                 Text(
-                    text = "Next"
+                    text = stringResource(R.string.button_next)
                 )
             }
         }
